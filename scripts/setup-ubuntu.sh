@@ -129,7 +129,8 @@ function install_fbthrift {
 }
 
 function install_conda {
-  MINICONDA_PATH="${HOME:-/opt}/miniconda-for-velox"
+  # MINICONDA_PATH="${HOME:-/opt}/miniconda-for-velox"
+  MINICONDA_PATH="${HOME}/.local/miniconda-for-velox"
   if [ -e ${MINICONDA_PATH} ]; then
     echo "File or directory already exists: ${MINICONDA_PATH}"
     return
@@ -191,17 +192,17 @@ function install_cuda {
 }
 
 function install_velox_deps {
-  run_and_time install_velox_deps_from_apt
-  run_and_time install_fmt
-  run_and_time install_boost
-  run_and_time install_folly
-  run_and_time install_fizz
-  run_and_time install_wangle
-  run_and_time install_mvfst
-  run_and_time install_fbthrift
-  run_and_time install_conda
-  run_and_time install_duckdb
-  run_and_time install_arrow
+  run_and_time install_velox_deps_from_apt # check
+  run_and_time install_fmt # check
+  run_and_time install_boost # check
+  run_and_time install_folly # check
+  run_and_time install_fizz # check
+  run_and_time install_wangle # check
+  run_and_time install_mvfst # check
+  run_and_time install_fbthrift # check
+  run_and_time install_conda # check
+  run_and_time install_duckdb # check
+  run_and_time install_arrow # check
 }
 
 function install_apt_deps {

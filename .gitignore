@@ -322,3 +322,15 @@ src/amalgamation/
 velox/docs/sphinx/source/README_generated_*
 velox/docs/bindings/python/_generate/*
 scripts/bm-report/report.html
+
+#build dependencies
+arrow/
+boost/
+conda/
+duckdb/
+fbthrift/
+fizz/
+fmt/
+folly/
+mvfst/
+wangle/

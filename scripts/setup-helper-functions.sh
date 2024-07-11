@@ -155,7 +155,8 @@ function cmake_install {
     -DBUILD_TESTING=OFF \
     "$@"
   # Exit if the build fails.
-  cmake --build "${BINARY_DIR}" || { echo 'build failed' ; exit 1; }
+  PARALLEL_JOBS=$(( $(lscpu | grep '^CPU(s):' | tr -s " " | cut -d' ' -f2) - 2 )) # use all but 2 CPUs
+  cmake --build "${BINARY_DIR}" -- -j $PARALLEL_JOBS || { echo 'build failed' ; exit 1; }
   ${SUDO} cmake --install "${BINARY_DIR}"
 }
 
